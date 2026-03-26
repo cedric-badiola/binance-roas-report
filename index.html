@@ -1,3 +1,8 @@
+bash
+
+cat /home/claude/Binance_ROAS_report_dynamic.html
+Output
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,9 +224,12 @@ const SHEET_ID = '1KxbJVhtKk_djJgDw4OWGkmE4aU32vaDBpcm9N7gsv9s';
 // GID of the MTD tab in the native GSheet (first tab = 0)
 const MTD_GID  = '0';
 
-// CSV export URL — works as long as sheet is "Anyone with link → Viewer"
+// Published CSV URL from Google Sheets "Publish to web"
+const PUBLISHED_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDVwx2nPZrwo1yiPgFyRlkXoXOEEt3w0aDcJq1UJO5nJYH74k59w_71SLtu2gSQVgaZaCY1-aoFRat/pub?gid=942745352&single=true&output=csv';
+
+// CSV export URL
 function csvUrl() {
-  return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${MTD_GID}&cachebust=${Date.now()}`;
+  return PUBLISHED_CSV_URL + '&cachebust=' + Date.now();
 }
 
 // ── HELPERS ─────────────────────────────────────────────────────────────────
